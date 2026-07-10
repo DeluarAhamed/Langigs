@@ -1281,17 +1281,14 @@ function AboutHeroSection() {
         <div className="about-hero-copy">
           <p className="eyebrow light">About us</p>
           <h1>A trusted language ecosystem for Africa and the world</h1>
-          <p>Langigs makes it easier for organizations to access verified native-language experts for translation, transcription, localization, AI data, voice recording, and multilingual research.</p>
-          <div className="about-hero-note">
-            <span>Built for businesses, AI companies, NGOs, researchers, and language professionals who need trust at scale.</span>
-            <a className="btn btn-light" href="#/services">Learn more <ArrowRight size={16} /></a>
-          </div>
-          <div className="about-hero-stats">
-            {stats.map(([number, label]) => <span key={label}><strong>{number}</strong>{label}</span>)}
-          </div>
+          <p>Langigs helps organizations access verified native-language experts for language services, AI data, and multilingual delivery.</p>
+          <a className="btn btn-light about-hero-cta" href="#/contact">Book a call <ArrowRight size={16} /></a>
         </div>
         <div className="about-hero-media">
           <img src={asset('jp-hero.jpg')} alt="J.P Williams, Founder and CEO of Langigs Global" />
+          <div className="about-hero-stats">
+            {stats.map(([number, label]) => <span key={label}><strong>{number}</strong>{label}</span>)}
+          </div>
           <a href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><img src={asset('linkedin-icon.png')} alt="" /> Connect with J.P</a>
         </div>
       </div>
