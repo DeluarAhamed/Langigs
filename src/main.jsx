@@ -1117,14 +1117,20 @@ function FreelancerTestimonials() {
   ];
   return (
     <section className="section freelancer-testimonials" data-animate>
-      <SectionIntro eyebrow="Social proof" title="Trusted by clients and language professionals" text="Buyers need confidence. Professionals need opportunity. Langigs is building trust on both sides of the language-services ecosystem." center />
+      <div className="container testimonial-headline">
+        <div>
+          <p className="eyebrow">Social proof</p>
+          <h2>What are they saying about Langigs?</h2>
+        </div>
+        <p>Buyers need confidence. Professionals need opportunity. Langigs is building trust on both sides of the language-services ecosystem.</p>
+        <a className="btn btn-primary" href="#/contact">Book a call</a>
+      </div>
       <div className="container testimonial-cards">
         {testimonials.map(([quote, name, role]) => (
           <article key={name}>
-            <div className="stars" aria-label="5 star review">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} fill="currentColor" />)}</div>
+            <div className="testimonial-profile"><span>{name.split(' ').map((part) => part[0]).join('').slice(0, 2)}</span><div><strong>{name}</strong><small>{role}</small></div></div>
             <p>{quote}</p>
-            <strong>{name}</strong>
-            <span>{role}</span>
+            <div className="testimonial-bottom"><div className="stars" aria-label="5 star review">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={16} fill="currentColor" />)}</div><span>5-star review</span></div>
           </article>
         ))}
       </div>
@@ -1241,14 +1247,15 @@ function AudiencePage({ audience }) {
 function AboutPage() {
   return (
     <main>
-      <PageHeader eyebrow="About Langigs" title="A trusted language ecosystem for Africa and the world" text="Langigs helps organizations access verified native-language experts for translation, transcription, localization, AI data, voice recording, and multilingual research while helping professionals turn language skill into real opportunity." image={asset('about-language-qa.png')} />
-      <section className="section clean-story" data-animate>
-        <div className="container story-grid">
+      <AboutHeroSection />
+      <section className="section about-partner-section" data-animate>
+        <div className="container about-partner-grid">
           <div>
-            <p className="eyebrow">Our mission</p>
-            <h2>Building the operating layer for trusted language work</h2>
+            <h2>We are the dedicated partner behind language work that needs real human judgment.</h2>
+            <p>Langigs helps businesses, AI teams, NGOs, researchers, and global operators move from unclear language needs to a managed delivery plan with verified native experts.</p>
+            <a className="btn btn-primary" href="#/contact">Book a discovery call</a>
           </div>
-          <p>Langigs was created for teams that need more than a marketplace list or a machine output. We combine vetted native expertise, managed delivery, and quality checkpoints so language work can support serious business, research, and AI outcomes. Our mission is two-sided: help organizations communicate and build with confidence, and help language professionals become more visible, prepared, and hireable.</p>
+          <img src={asset('about-language-qa.png')} alt="Langigs language quality workflow" />
         </div>
       </section>
       <AboutMissionSection />
@@ -1259,6 +1266,37 @@ function AboutPage() {
       <FAQSection eyebrow="About FAQ" title="Questions people ask about Langigs Global" text="How we work, who we serve, and why human language expertise matters." items={aboutFaq()} />
       <CtaSection title="Join the Langigs mission" />
     </main>
+  );
+}
+
+function AboutHeroSection() {
+  const stats = [
+    ['2,400+', 'Vetted professionals'],
+    ['180+', 'Languages and dialects'],
+    ['15k+', 'Projects delivered'],
+    ['99.2%', 'Client accuracy rating']
+  ];
+  return (
+    <section className="about-hero-blue" data-animate>
+      <div className="container about-hero-grid">
+        <div className="about-hero-copy">
+          <p className="eyebrow light">About us</p>
+          <h1>A trusted language ecosystem for Africa and the world</h1>
+          <p>Langigs makes it easier for organizations to access verified native-language experts for translation, transcription, localization, AI data, voice recording, and multilingual research.</p>
+          <div className="about-hero-note">
+            <span>Built for businesses, AI companies, NGOs, researchers, and language professionals who need trust at scale.</span>
+            <a className="btn btn-light" href="#/services">Learn more <ArrowRight size={16} /></a>
+          </div>
+          <div className="about-hero-stats">
+            {stats.map(([number, label]) => <span key={label}><strong>{number}</strong>{label}</span>)}
+          </div>
+        </div>
+        <div className="about-hero-media">
+          <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
+          <a href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><Linkedin size={17} /> Connect with J.P</a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1289,7 +1327,7 @@ function FounderSection() {
   return (
     <section className="section founder-section" data-animate>
       <div className="container founder-grid">
-        <img src={asset('jp-founder.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
+        <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
         <div>
           <p className="eyebrow">Founder and CEO</p>
           <h2>J.P Williams is building Langigs for trustworthy global language work</h2>
@@ -1577,7 +1615,7 @@ function ContactPage() {
             <h1>Let's start the dialogue now.</h1>
             <p>Tell us what you need, or book a short call. We will help you clarify the right service mix, target languages, quality checks, timeline, and next step.</p>
             <div className="contact-founder-mini">
-              <img src={asset('jp-founder.png')} alt="J.P Williams, Founder and CEO of Langigs" />
+              <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs" />
               <div><strong>J.P Williams</strong><span>Founder and CEO, Langigs Global</span></div>
             </div>
           </div>
