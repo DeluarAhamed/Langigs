@@ -12,6 +12,7 @@ import {
   FileText,
   Globe2,
   Languages,
+  Linkedin,
   Mail,
   MessageCircle,
   Menu,
@@ -182,7 +183,11 @@ const caseStudies = [
     result: '10,000+ hours of validated multilingual speech data',
     image: asset('brand-workflow-infographic.png'),
     challenge: 'The client needed natural speech samples across language communities with clear consent, consistent metadata, and reliable validation.',
-    solution: 'Langigs recruited native speakers, managed recording workflows, reviewed files for quality, and delivered structured data ready for model training.'
+    solution: 'Langigs recruited native speakers, managed recording workflows, reviewed files for quality, and delivered structured data ready for model training.',
+    context: 'AI teams often underestimate the operational work behind African language datasets. Speaker recruitment, prompt design, consent, accent coverage, background-noise control, metadata, and human validation all affect whether a model learns real language use or simply memorizes clean lab audio.',
+    execution: ['Mapped speaker profiles by language, region, age band, and recording condition', 'Built recording instructions that were simple enough for contributors and strict enough for QA', 'Reviewed samples for clarity, consent, duplication, metadata completeness, and language authenticity', 'Delivered batches with issue logs so the client could improve model training without guessing'],
+    metrics: [['10k+', 'validated hours'], ['180+', 'language communities supported'], ['2-step', 'native review process']],
+    takeaway: 'The strongest AI language datasets are not just collected. They are designed, checked, and documented by people who understand how the language is actually spoken.'
   },
   {
     slug: 'ngo-field-research-transcription',
@@ -191,7 +196,11 @@ const caseStudies = [
     result: 'Rapid turnaround across low-resource languages',
     image: asset('services-language-ops.png'),
     challenge: 'A research team had interviews with multiple speakers, dialect shifts, background noise, and strict confidentiality needs.',
-    solution: 'Langigs matched native transcribers, added reviewer checks, standardized formatting, and delivered clean transcripts for analysis.'
+    solution: 'Langigs matched native transcribers, added reviewer checks, standardized formatting, and delivered clean transcripts for analysis.',
+    context: 'Research transcription becomes risky when language, confidentiality, and field conditions collide. The team needed transcripts that preserved meaning, speaker turns, and local nuance without slowing down analysis.',
+    execution: ['Separated interviews by language, audio quality, and sensitivity level', 'Assigned native transcribers with research and NGO context', 'Standardized speaker labels, timestamps, unclear-audio markers, and formatting', 'Added reviewer passes for terminology, names, and meaning-critical passages'],
+    metrics: [['48hr', 'pilot review window'], ['3 layers', 'privacy-aware handling'], ['1 workflow', 'for all language batches']],
+    takeaway: 'For field research, transcription quality is not just word accuracy. It is the ability to protect context so analysts can trust what they are reading.'
   },
   {
     slug: 'localized-saas-market-entry',
@@ -200,7 +209,11 @@ const caseStudies = [
     result: 'Market-ready website, product copy, and support content',
     image: asset('blog-localization-strategy.png'),
     challenge: 'The client needed product language that felt local, not directly translated from English.',
-    solution: 'Langigs localized conversion pages, product strings, onboarding copy, and support content with native market review.'
+    solution: 'Langigs localized conversion pages, product strings, onboarding copy, and support content with native market review.',
+    context: 'The SaaS team had a strong English product, but direct translation would have carried over the wrong examples, calls to action, support language, and trust signals for the new market.',
+    execution: ['Audited high-intent pages, onboarding flows, product strings, and support articles', 'Created localized terminology guidance for product, pricing, and support language', 'Reviewed conversion copy with native market experts', 'Flagged UI text expansion issues before launch'],
+    metrics: [['42', 'priority screens reviewed'], ['5', 'content types localized'], ['1', 'market voice guide created']],
+    takeaway: 'Localization performs best when language, product UX, and buyer trust are handled together instead of as separate translation tasks.'
   }
 ];
 
@@ -1095,18 +1108,23 @@ function Benefits() {
 
 function FreelancerTestimonials() {
   const testimonials = [
-    ['Professional support and secure payments make Langigs the best platform I have worked with. Highly recommended!', 'Li Wei', 'Mandarin Translator'],
-    ['The variety of projects on Langigs keeps my work exciting. From technical manuals to creative content, there is always something new.', 'Ahmed Hassan', 'Arabic Transcriptionist'],
-    ['Langigs has transformed my freelance career. I have connected with amazing clients and doubled my income in just 6 months.', 'Maria González', 'Spanish Translator']
+    ["Langigs gave our AI team a clearer way to source native-language contributors without losing control of quality, consent, or timelines.", "Data Operations Lead", "AI research company"],
+    ["The team understood our field interview context quickly. The transcripts came back clean, consistent, and ready for analysis.", "Research Program Manager", "NGO field project"],
+    ["What stood out was the project management. We were not chasing individual freelancers. We had one workflow and clear review notes.", "Localization Manager", "SaaS expansion team"],
+    ["Professional support and secure payments make Langigs one of the most serious language platforms I have worked with.", "Li Wei", "Mandarin Translator"],
+    ["The challenge helped me position my skills better and understand how to talk to clients with more confidence.", "Ahmed Hassan", "Arabic Transcriptionist"],
+    ["Langigs connects professionals with real language opportunities, not just random tasks. That difference matters.", "Maria Gonzalez", "Spanish Translator"]
   ];
   return (
     <section className="section freelancer-testimonials" data-animate>
-      <SectionIntro title="What Our Freelancers Say" center />
+      <SectionIntro eyebrow="Social proof" title="Trusted by clients and language professionals" text="Buyers need confidence. Professionals need opportunity. Langigs is building trust on both sides of the language-services ecosystem." center />
       <div className="container testimonial-cards">
         {testimonials.map(([quote, name, role]) => (
           <article key={name}>
+            <div className="stars" aria-label="5 star review">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} fill="currentColor" />)}</div>
             <p>{quote}</p>
-            <strong>{name}, {role}</strong>
+            <strong>{name}</strong>
+            <span>{role}</span>
           </article>
         ))}
       </div>
@@ -1223,16 +1241,17 @@ function AudiencePage({ audience }) {
 function AboutPage() {
   return (
     <main>
-      <PageHeader eyebrow="About" title="A human bridge for Africa's digital economy" text="Langigs connects global demand with deep local expertise so organizations get reliable language work and professionals access dignified opportunities." image={asset('about-language-qa.png')} />
+      <PageHeader eyebrow="About Langigs" title="A trusted language ecosystem for Africa and the world" text="Langigs helps organizations access verified native-language experts for translation, transcription, localization, AI data, voice recording, and multilingual research while helping professionals turn language skill into real opportunity." image={asset('about-language-qa.png')} />
       <section className="section clean-story" data-animate>
         <div className="container story-grid">
           <div>
-            <p className="eyebrow">Our story</p>
-            <h2>Built to make language work easier to trust</h2>
+            <p className="eyebrow">Our mission</p>
+            <h2>Building the operating layer for trusted language work</h2>
           </div>
-          <p>Langigs was created for teams that need more than a marketplace list or a machine output. We combine vetted native expertise, managed delivery, and quality checkpoints so language work can support serious business, research, and AI outcomes.</p>
+          <p>Langigs was created for teams that need more than a marketplace list or a machine output. We combine vetted native expertise, managed delivery, and quality checkpoints so language work can support serious business, research, and AI outcomes. Our mission is two-sided: help organizations communicate and build with confidence, and help language professionals become more visible, prepared, and hireable.</p>
         </div>
       </section>
+      <AboutMissionSection />
       <FounderSection />
       <Benefits />
       <AnimatedWorkflow title="How Langigs keeps human language work accountable" text="The workflow is intentionally simple so buyers, project managers, reviewers, and language professionals always know what happens next." />
@@ -1246,7 +1265,7 @@ function AboutPage() {
 function CaseStudiesIndex() {
   return (
     <main>
-      <PageHeader eyebrow="Case Studies" title="Proven impact for global organizations" text="Project stories across AI data, transcription, localization, and multilingual research." image={asset('brand-workflow-infographic.png')} />
+      <PageHeader eyebrow="Case Studies" title="Proof that complex language work can be managed well" text="Project stories across AI data, transcription, localization, and multilingual research for teams that need native expertise, speed, and quality control." image={asset('brand-workflow-infographic.png')} />
       <section className="section case-index-section" data-animate>
         <div className="container case-index-head">
           <div>
@@ -1257,7 +1276,9 @@ function CaseStudiesIndex() {
         </div>
         <div className="container case-feature-grid">{caseStudies.map((item, index) => <CaseCard key={item.slug} item={item} featured={index === 0} />)}</div>
       </section>
+      <CaseStudySignals />
       <CaseProofStrip />
+      <CaseStudyBuyerGuide />
       <AnimatedWorkflow title="The same delivery discipline behind every case study" text="Each project starts with scope clarity and ends with files, notes, and quality checks your team can trust." />
       <CtaSection />
     </main>
@@ -1268,16 +1289,75 @@ function FounderSection() {
   return (
     <section className="section founder-section" data-animate>
       <div className="container founder-grid">
-        <img src={asset('jp-founder.jpg')} alt="JP, Founder and CEO of Langigs Global" />
+        <img src={asset('jp-founder.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
         <div>
           <p className="eyebrow">Founder and CEO</p>
-          <h2>JP is building Langigs for trustworthy global language work</h2>
-          <p className="lead">Langigs exists to make professional language services easier to buy, easier to manage, and more dignified for the experts doing the work. JP leads the company with a focus on African language talent, human review, and operational clarity.</p>
+          <h2>J.P Williams is building Langigs for trustworthy global language work</h2>
+          <p className="lead">Langigs exists to make professional language services easier to buy, easier to manage, and more dignified for the experts doing the work. J.P leads the company with a focus on African language talent, human review, career visibility, and operational clarity for clients.</p>
+          <a className="linkedin-link" href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><Linkedin size={18} /> Connect with J.P on LinkedIn</a>
           <div className="founder-proof">
             <span><strong>2,400+</strong> vetted professionals</span>
             <span><strong>180+</strong> languages and dialects</span>
             <span><strong>15k+</strong> projects delivered</span>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutMissionSection() {
+  const pillars = [
+    ['For organizations', 'A single place to scope, manage, and deliver translation, transcription, annotation, localization, voice, and multilingual data projects with native experts.'],
+    ['For language professionals', 'A trusted route to visibility, training, paid opportunities, and career growth without being treated like anonymous task labor.'],
+    ['For African languages', 'A deliberate focus on low-resource and high-context languages where human expertise, culture, and community trust matter most.']
+  ];
+  return (
+    <section className="section about-mission" data-animate>
+      <div className="container mission-grid">
+        <div>
+          <p className="eyebrow">What we believe</p>
+          <h2>Language work should be easier to trust, easier to manage, and fairer to the people behind it.</h2>
+        </div>
+        <div className="mission-cards">
+          {pillars.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudySignals() {
+  const signals = [
+    ['AI teams', 'Native speech, text, annotation, validation, and multilingual data pipelines for better model performance.'],
+    ['NGOs and researchers', 'Confidential transcription, translation, and field-language support for interviews, surveys, and reports.'],
+    ['Growth teams', 'Website, product, support, and campaign localization that respects market context and buyer trust.'],
+    ['Talent networks', 'Verified professionals matched by language, domain, reliability, and review needs.']
+  ];
+  return (
+    <section className="section case-signals" data-animate>
+      <SectionIntro eyebrow="Who these stories are for" title="The same problem appears in different industries: language work needs accountability" text="Langigs is built for teams that need native expertise at scale without losing quality control." center />
+      <div className="container case-signal-grid">
+        {signals.map(([title, copy]) => <article key={title}><Sparkles /><h3>{title}</h3><p>{copy}</p></article>)}
+      </div>
+    </section>
+  );
+}
+
+function CaseStudyBuyerGuide() {
+  return (
+    <section className="section case-buyer-guide" data-animate>
+      <div className="container buyer-guide-grid">
+        <div>
+          <p className="eyebrow">What buyers should notice</p>
+          <h2>Strong case studies prove process, not just results.</h2>
+        </div>
+        <div className="buyer-guide-list">
+          {[
+            ['Brief quality', 'The scope defines languages, audience, risk, format, deadline, and success criteria before work begins.'],
+            ['Native fit', 'Experts are chosen for language, dialect, domain, and reliability, not only availability.'],
+            ['Review model', 'The best projects include human QA, issue tracking, metadata, and a delivery handoff your team can use.']
+          ].map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </div>
     </section>
@@ -1292,9 +1372,22 @@ function CaseStudyPage({ item }) {
       <section className="section case-detail-section clean-detail" data-animate>
         <div className="container case-detail-grid">
           <article className="case-story-panel">
+            <DetailBlock eyebrow="Overview" title="Why this project mattered" text={item.context} />
+            <div className="case-metric-row">
+              {item.metrics.map(([number, label]) => <span key={label}><strong>{number}</strong>{label}</span>)}
+            </div>
+            <CaseGraphic item={item} />
             <DetailBlock eyebrow="Challenge" title="The challenge" text={item.challenge} />
             <DetailBlock eyebrow="Solution" title="The Langigs solution" text={item.solution} />
+            <section className="detail-block">
+              <p className="eyebrow">Execution</p>
+              <h2>What the team actually did</h2>
+              <div className="case-execution-list">
+                {item.execution.map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><p>{step}</p></div>)}
+              </div>
+            </section>
             <DetailBlock eyebrow="Result" title="The result" text={item.result} />
+            <DetailBlock eyebrow="Takeaway" title="What this proves" text={item.takeaway} />
             <div className="case-timeline">
               {['Scope and risk review', 'Native expert matching', 'Production and QA', 'Structured delivery'].map((step, index) => <span key={step}><b>{String(index + 1).padStart(2, '0')}</b>{step}</span>)}
             </div>
@@ -1302,10 +1395,23 @@ function CaseStudyPage({ item }) {
           <aside className="case-result-card sticky-prompt">
             <BadgeCheck />
             <p className="eyebrow">Outcome</p>
-            <h2>{item.result}</h2>
+            <h3>{item.result}</h3>
             <p>Use this structure for your own project: one brief, one accountable workflow, native delivery, and visible quality checks.</p>
+            <div className="mini-outcomes">
+              {item.metrics.map(([number, label]) => <span key={label}><strong>{number}</strong>{label}</span>)}
+            </div>
             <a className="btn btn-primary" href="#/contact">Discuss a similar project</a>
           </aside>
+        </div>
+      </section>
+      <section className="section case-lessons" data-animate>
+        <SectionIntro eyebrow="Lessons" title="How to apply this to your language project" text="Whether you need AI data, research support, localization, or transcription, the same decisions reduce risk." center />
+        <div className="container case-lessons-grid">
+          {[
+            ['Start with the use case', 'Tell the language team what the final content or dataset must help your audience do.'],
+            ['Document quality standards', 'Define examples, edge cases, terminology, metadata, and review expectations before production starts.'],
+            ['Use native review early', 'A small pilot reviewed by native experts catches issues before they become expensive at scale.']
+          ].map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </section>
       <AnimatedWorkflow title="The workflow behind this result" text="From sourcing and production to review and handoff, Langigs keeps complex language projects moving through a visible operating model." />
@@ -1471,8 +1577,8 @@ function ContactPage() {
             <h1>Let's start the dialogue now.</h1>
             <p>Tell us what you need, or book a short call. We will help you clarify the right service mix, target languages, quality checks, timeline, and next step.</p>
             <div className="contact-founder-mini">
-              <img src={asset('jp-founder.jpg')} alt="JP, Founder and CEO of Langigs" />
-              <div><strong>JP</strong><span>Founder and CEO, Langigs Global</span></div>
+              <img src={asset('jp-founder.png')} alt="J.P Williams, Founder and CEO of Langigs" />
+              <div><strong>J.P Williams</strong><span>Founder and CEO, Langigs Global</span></div>
             </div>
           </div>
           <div className="contact-panel">
