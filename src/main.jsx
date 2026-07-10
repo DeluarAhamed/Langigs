@@ -12,7 +12,6 @@ import {
   FileText,
   Globe2,
   Languages,
-  Linkedin,
   Mail,
   MessageCircle,
   Menu,
@@ -1292,8 +1291,8 @@ function AboutHeroSection() {
           </div>
         </div>
         <div className="about-hero-media">
-          <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
-          <a href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><Linkedin size={17} /> Connect with J.P</a>
+          <img src={asset('jp-hero.jpg')} alt="J.P Williams, Founder and CEO of Langigs Global" />
+          <a href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><img src={asset('linkedin-icon.png')} alt="" /> Connect with J.P</a>
         </div>
       </div>
     </section>
@@ -1327,12 +1326,12 @@ function FounderSection() {
   return (
     <section className="section founder-section" data-animate>
       <div className="container founder-grid">
-        <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs Global" />
+        <img src={asset('jp-portrait.jpg')} alt="J.P Williams, Founder and CEO of Langigs Global" />
         <div>
           <p className="eyebrow">Founder and CEO</p>
           <h2>J.P Williams is building Langigs for trustworthy global language work</h2>
           <p className="lead">Langigs exists to make professional language services easier to buy, easier to manage, and more dignified for the experts doing the work. J.P leads the company with a focus on African language talent, human review, career visibility, and operational clarity for clients.</p>
-          <a className="linkedin-link" href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><Linkedin size={18} /> Connect with J.P on LinkedIn</a>
+          <a className="linkedin-link" href="https://ng.linkedin.com/in/james-williams-prince" target="_blank" rel="noreferrer"><img src={asset('linkedin-icon.png')} alt="" /> Connect with J.P on LinkedIn</a>
           <div className="founder-proof">
             <span><strong>2,400+</strong> vetted professionals</span>
             <span><strong>180+</strong> languages and dialects</span>
@@ -1615,7 +1614,7 @@ function ContactPage() {
             <h1>Let's start the dialogue now.</h1>
             <p>Tell us what you need, or book a short call. We will help you clarify the right service mix, target languages, quality checks, timeline, and next step.</p>
             <div className="contact-founder-mini">
-              <img src={asset('jp-founder-cutout.png')} alt="J.P Williams, Founder and CEO of Langigs" />
+              <img src={asset('jp-portrait.jpg')} alt="J.P Williams, Founder and CEO of Langigs" />
               <div><strong>J.P Williams</strong><span>Founder and CEO, Langigs Global</span></div>
             </div>
           </div>
